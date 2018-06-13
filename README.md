@@ -22,7 +22,9 @@ Run `mongo` to start a mongo shell.
 
 Create a new database with custom name, for example "database", by running `use database`
 
-Create a new database user with custom name and password by running `db.createUser( { user: "user", pwd: "password", roles: [ {role: "readWrite", db: "database"} ] } )`
+Create a new database user with custom name and password by running 
+```db.createUser( { user: "user", pwd: "password", roles: [ {role: "readWrite", db: "database"} ] } )
+```
 
 You can view all the databases and users of each by running `show dbs` and `db.getUsers()` respectively.
 
@@ -74,10 +76,10 @@ Refresh your dashboard and now you can configure the collector. (The collector m
 ## Notes
 
 ### api connected but ui does not
-if this happen, check the port and see if any application occupies the 8080 port.
+If this happen, check the port and see if any application occupies the 8080 port.
 
 ### jenkins
-jenkins default port is 8000. Should not change it.
+Jenkins default port is 8000. Should not change it.
 
 ### github
 The url you put in the ui should be the git clone path.
@@ -85,4 +87,7 @@ There is a problem with api commit timezone, it might not work properly.
 https://bitbucket.org/rest/api/1.0/projects/wl1390/repos/test/commits?until=master&limit=25
 
 ### bitbucket
-for the .properties set up, write `git.api=/2.0/repositories/` instead of the documentation. The url you put in the UI should be `https://api.bitbucket.org/{username}/{reponame}`
+For the .properties set up, write `git.api=/2.0/repositories/` instead of the documentation. The url you put in the UI should be `https://api.bitbucket.org/{username}/{reponame}`
+
+### jira
+There might be bugs in the collector codes. Collector links to jira successfully on the API layer, but UI is not displaying the content properly.
