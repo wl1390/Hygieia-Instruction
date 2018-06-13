@@ -16,13 +16,15 @@ maven, mongodb, java
 
 ## Database - MongoDB
 
-Start a mongoDB session by running `mongod` if you don't have one already running. And run `mongo` to start a mongo shell.
+Start a mongoDB session by running `mongod` if there isn't one already running. 
 
-Create a new database with custom name, for example "dbtest", by running `use dbtest`
+Run `mongo` to start a mongo shell.
+
+Create a new database with custom name, for example "database", by running `use database`
 
 Create a new database user with custom name and password by running `db.createUser( { user: "user", pwd: "password", roles: [ {role: "readWrite", db: "database"} ] } )`
 
-You can view all the databases and users of each by running `show dbs` and `db.getUsers()` respectively
+You can view all the databases and users of each by running `show dbs` and `db.getUsers()` respectively.
 
 ## Build The Project 
 Go to https://github.com/capitalone/Hygieia and get master either by git clone or download.
@@ -32,7 +34,7 @@ Cd in into this folder and run `mvn clean install package`
 Go into /UI and run `gulp serve`, you should be able to see the ui opening in a browser.
 
 ## Connect API
-go to /api and create a dashboard.properties with content
+Go to /api and create a dashboard.properties with content
 ```
 dbname=database
 dbusername=user
@@ -40,10 +42,12 @@ dbpassword=password
 dbhost=localhost
 dbport=27017
 ```
-in application.properties. The dbname, username, password need to match your custom database information.
+The dbname, username, password need to match your custom database information.
 
 Run this command in root directory.
-`java -jar api/target/api.jar --spring.config.location=api/dashboard.properties -Djasypt.encryptor.password=hygieiasecret`
+```
+java -jar api/target/api.jar --spring.config.location=api/dashboard.properties -Djasypt.encryptor.password=hygieiasecret
+```
 
 The port should be available. If shows address already in use error, kill the application that is occuping the port.
 
@@ -52,12 +56,14 @@ Run `gulp serve` in /UI and you should see the UI with api connected. Sign up fo
 ## Configure Collectors
 Go to http://capitalone.github.io/Hygieia/collectors.html#tool-collectors and find the collector you want to use.
 
-Follow Setup Instructions Step 1 and 2 (cd into the collector fold and run `mvn install`)
+Follow Setup Instructions Step 1 and 2 (which is cd into the collector fold and run `mvn install`)
 
-configure the `application.properties` file according to the sample properties provided there.
+Configure the `application.properties` file according to the sample properties provided there.
 
-run the following command in the current collector's folder
+Run the following command in the current collector's folder
+```
 java -jar target/[collectorname.jar] --spring.config.name=git --spring.config.location=../../../api/src/main/resources/application.properties
+```
 
 Refresh your dashboard and now you can configure the collector. (The collector might take several minutes to be enabled, but it shouldn't be longer than that.)
 
