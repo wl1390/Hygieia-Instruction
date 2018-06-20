@@ -16,6 +16,8 @@ maven, mongodb, java
 
 ## Database - MongoDB
 
+Download MongoDB 3.0 or above.
+
 Start a mongoDB session by running `mongod` if there isn't one already running. 
 
 Run `mongo` to start a mongo shell.
@@ -33,7 +35,7 @@ Go to https://github.com/capitalone/Hygieia and get master either by git clone o
 
 Cd in into this folder and run `mvn clean install package`
 
-Go into /UI and run `gulp serve`, you should be able to see the ui opening in a browser.
+After successfully building the project, go into /UI and run `gulp serve`, you should be able to see the ui opening in a browser.
 
 ## Connect API
 Go to /api and create a dashboard.properties with content
@@ -44,7 +46,7 @@ dbpassword=password
 dbhost=localhost
 dbport=27017
 ```
-The dbname, username, password need to match your custom database information.
+The dbname, username, password need to match your custom database information in mongoDB.
 
 Run this command in root directory.
 ```
