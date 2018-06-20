@@ -2,7 +2,7 @@
 
 * Dependencies 
 
-* Database- MongoDB
+* Database - MongoDB
 
 * Build The Project
 
