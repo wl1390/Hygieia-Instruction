@@ -14,17 +14,20 @@
 
 maven, mongodb 3.0 or above, java 1.8 recommended
 
-### note for hygieia on Raspberry PI
+### Note for hygieia on Raspberry PI
 
 Hygieia requires MongoDB 3.0 or above. Starting from version 3.2 MongoDB only supports 64-bit binary which the current Raspberry PI does not support. So it's essential to download the 32 bit MongoDB 3.0 version for Hygieia. The official MongoDB 3.0 32-bit binary for Linux could not be executed by Raspberry PI. So we have to compile binaries ourselves.
 
 Luckily we can find ready-to-use binaries here:
+
 https://andyfelong.com/2017/08/mongodb-3-0-14-for-raspbian-stretch/
+
 https://andyfelong.com/2016/01/mongodb-3-0-9-binaries-for-raspberry-pi-2-jessie/
 
 Download both the core and tool binaries and copy them into /usr/bin by `sudo cp [your binary directory]/* /usr/bin/`.
 
 For maven, download maven from its website and follow the tutorial here to add the path:
+
 http://agilerule.blogspot.com/2016/06/how-to-install-maven-on-raspberry-pi.html
 
 
@@ -49,6 +52,31 @@ Go to https://github.com/capitalone/Hygieia and get master either by git clone o
 Cd in into this folder and run `mvn clean install package`
 
 After successfully building the project, go into /UI and run `gulp serve`, you should be able to see the ui opening in a browser.
+
+### Note for hygieia on Raspberry PI
+`mvn clean install package` may fail in the UI step on the `npm install --ignore scripts` command, we'll have to do everything after this manually. 
+
+When it fails on the UI step, go to /UI and delete /node and /node_modules
+
+Follow the following command to install new node
+```
+pi@raspberrypi:~ $  sudo su -
+root@raspberrypi:~ # apt-get remove nodered -y
+root@raspberrypi:~ # apt-get remove nodejs nodejs-legacy -y
+root@raspberrypi:~ # apt-get remove npm  -y
+root@raspberrypi:~ # curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+root@raspberrypi:~ # apt-get install nodejs -y
+    
+```
+
+check the node and npm version by running `node -v` and `npm -v`
+
+run `npm install --ignore scripts`
+After success, run `npm install bower -g` and `npm install gulp`
+After success, run `bower install` and `gulp build`
+
+`gulp build` might show error, but as long as `gulp serve` brings the dashboard browser up we are fine. 
+
 
 ## Connect API
 Go to /api and create a dashboard.properties with content
