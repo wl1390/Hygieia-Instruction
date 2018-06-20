@@ -12,11 +12,23 @@
 
 ## Dependencies
 
-maven, mongodb, java
+maven, mongodb 3.0 or above, java 1.8 recommended
+
+### note for hygieia on Raspberry PI
+
+Hygieia requires MongoDB 3.0 or above. Starting from version 3.2 MongoDB only supports 64-bit binary which the current Raspberry PI does not support. So it's essential to download the 32 bit MongoDB 3.0 version for Hygieia. The official MongoDB 3.0 32-bit binary for Linux could not be executed by Raspberry PI. So we have to compile binaries ourselves.
+
+Luckily we can find ready-to-use binaries here:
+https://andyfelong.com/2017/08/mongodb-3-0-14-for-raspbian-stretch/
+https://andyfelong.com/2016/01/mongodb-3-0-9-binaries-for-raspberry-pi-2-jessie/
+
+Download both the core and tool binaries and copy them into /usr/bin by `sudo cp [your binary directory]/* /usr/bin/`.
+
+For maven, download maven from its website and follow the tutorial here to add the path:
+http://agilerule.blogspot.com/2016/06/how-to-install-maven-on-raspberry-pi.html
+
 
 ## Database - MongoDB
-
-Download MongoDB 3.0 or above.
 
 Start a mongoDB session by running `mongod` if there isn't one already running. 
 
@@ -25,7 +37,8 @@ Run `mongo` to start a mongo shell.
 Create a new database with custom name, for example "database", by running `use database`
 
 Create a new database user with custom name and password by running 
-```db.createUser( { user: "user", pwd: "password", roles: [ {role: "readWrite", db: "database"} ] } )
+```
+db.createUser( { user: "user", pwd: "password", roles: [ {role: "readWrite", db: "database"} ] } )
 ```
 
 You can view all the databases and users of each by running `show dbs` and `db.getUsers()` respectively.
