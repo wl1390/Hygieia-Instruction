@@ -98,6 +98,8 @@ The port should be available. If shows address already in use error, kill the ap
 
 Run `gulp serve` in /UI and you should see the UI with api connected. Sign up for an account and log in to configure your dashboard.
 
+If in UI API shows connected but no edit text is there to log in, open another terminal and run `gulp serve` without closing the current one. The dashboard will be assigned to a new port and it should be fine.
+
 ## Configure Collectors
 Go to http://capitalone.github.io/Hygieia/collectors.html#tool-collectors and find the collector you want to use.
 
