@@ -35,6 +35,8 @@ http://agilerule.blogspot.com/2016/06/how-to-install-maven-on-raspberry-pi.html
 
 Start a mongoDB session by running `mongod` if there isn't one already running. 
 
+If `mongod` is not working, try `sudo mongod` or `mongod --repair && mongod` depending on the error.  
+
 Run `mongo` to start a mongo shell.
 
 Create a new database with custom name, for example "database", by running `use database`
@@ -98,7 +100,7 @@ The port should be available. If shows address already in use error, kill the ap
 
 Run `gulp serve` in /UI and you should see the UI with api connected. Sign up for an account and log in to configure your dashboard.
 
-If in UI API shows connected but no edit text is there to log in, open another terminal and run `gulp serve` without closing the current one. The dashboard will be assigned to a new port and it should be fine.
+If in UI API shows connected but no edit text is there to log in, clear the browser cache and cookie and try again.
 
 ## Configure Collectors
 Go to http://capitalone.github.io/Hygieia/collectors.html#tool-collectors and find the collector you want to use.
