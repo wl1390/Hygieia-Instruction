@@ -30,6 +30,8 @@ For maven, download maven from its website and follow the tutorial here to add t
 
 http://agilerule.blogspot.com/2016/06/how-to-install-maven-on-raspberry-pi.html
 
+When you turn the PI off, make sure to turn off the server by running `db.shutdownServer()` in the Mongo Shell. If it ever happens that the collector api is running but not showing up in UI, it means that the database is corrupt. One solution is to go to MongoDB's default location and delete everything. Start MongoDB setup all over again.
+
 
 ## Database - MongoDB
 
@@ -47,6 +49,7 @@ db.createUser( { user: "user", pwd: "password", roles: [ {role: "readWrite", db:
 ```
 
 You can view all the databases and users of each by running `show dbs` and `db.getUsers()` respectively.
+
 
 ## Build The Project 
 Go to https://github.com/capitalone/Hygieia and get master either by git clone or download.
