@@ -61,7 +61,7 @@ Cd in into this folder and run `mvn clean install package` or
 After successfully building the project, go into /UI and run `gulp serve`, you should be able to see the ui opening in a browser.
 
 ### Note for hygieia on Raspberry PI
-`mvn clean install package` may fail in the UI step on the `npm install --ignore scripts` command, we'll have to do everything after this manually. 
+`mvn clean install package` may fail in the UI step on the `npm install --ignore scripts` and `npm install` command, we'll have to do everything after this manually. 
 
 If it fails on a collector, go to pom.xml and skip that step, and run mvn again.
 
