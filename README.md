@@ -104,8 +104,6 @@ The port should be available. If shows address already in use error, kill the ap
 
 Run `gulp serve` in /UI and you should see the UI with api connected. Sign up for an account and log in to configure your dashboard.
 
-If in UI API shows connected but no edit text is there to log in, clear the browser cache and cookie and try again.
-
 ## Configure Collectors
 Go to http://capitalone.github.io/Hygieia/collectors.html#tool-collectors and find the collector you want to use.
 
@@ -126,6 +124,9 @@ Refresh your dashboard and now you can configure the collector. (The collector m
 
 ### api connected but ui does not
 If this happen, check the port and see if any application occupies the 8080 port.
+
+### api connected but no login edit text box
+Clear the browser cache.
 
 ### jenkins
 Jenkins default port is 8000. Should not change it.
