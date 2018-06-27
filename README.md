@@ -81,7 +81,7 @@ root@raspberrypi:~ # apt-get install nodejs -y
 check the node and npm version by running `node -v` and `npm -v`
 
 run `npm install --ignore scripts`
-After success, run `npm install bower -g` and `npm install gulp`
+After success, run `sudo npm install bower -g` and `sudo npm install gulp -g`
 After success, run `bower install` and `gulp build`
 
 `gulp build` might show error, but as long as `gulp serve` brings the dashboard browser up we are fine. 
