@@ -109,8 +109,6 @@ If in UI API shows connected but no edit text is there to log in, clear the brow
 ## Configure Collectors
 Go to http://capitalone.github.io/Hygieia/collectors.html#tool-collectors and find the collector you want to use.
 
-Follow Setup Instructions Step 1 and 2 (which is cd into the collector fold and run `mvn install`)
-
 Configure the `application.properties` file according to the sample properties provided there.
 
 Run the following command in the current collector's folder
