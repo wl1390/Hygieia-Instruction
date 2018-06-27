@@ -34,6 +34,7 @@ When you turn the PI off, make sure to turn off the server by running `db.shutdo
 
 
 ## Database - MongoDB
+Create /data/db directory in the root folder.
 
 Start a mongoDB session by running `mongod` if there isn't one already running. 
 
