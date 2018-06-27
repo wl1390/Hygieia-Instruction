@@ -55,14 +55,15 @@ You can view all the databases and users of each by running `show dbs` and `db.g
 ## Build The Project 
 Go to https://github.com/capitalone/Hygieia and get master either by git clone or download.
 
-Cd in into this folder and run `mvn clean install package`
+Cd in into this folder and run `mvn clean install package` or
+`mvn clean install package -Dmaven.test.skip=true -Dpmd.failOnViolation=false`
 
 After successfully building the project, go into /UI and run `gulp serve`, you should be able to see the ui opening in a browser.
 
 ### Note for hygieia on Raspberry PI
 `mvn clean install package` may fail in the UI step on the `npm install --ignore scripts` command, we'll have to do everything after this manually. 
 
-or simply run `mvn clean install package -Dmaven.test.skip=true -Dpmd.failOnViolation=false` in the beginning.
+If it fails on a collector, go to pom.xml and skip that step, and run mvn again.
 
 When it fails on the UI step, go to /UI and delete /node and /node_modules
 
