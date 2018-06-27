@@ -62,6 +62,8 @@ After successfully building the project, go into /UI and run `gulp serve`, you s
 ### Note for hygieia on Raspberry PI
 `mvn clean install package` may fail in the UI step on the `npm install --ignore scripts` command, we'll have to do everything after this manually. 
 
+or simply run `mvn clean install package -Dmaven.test.skip=true -Dpmd.failOnViolation=false` in the beginning.
+
 When it fails on the UI step, go to /UI and delete /node and /node_modules
 
 Follow the following command to install new node
