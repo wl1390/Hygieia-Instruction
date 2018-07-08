@@ -136,7 +136,6 @@ Jenkins default port is 8000. Should not change it.
 ### github
 The url you put in the ui should be the git clone path.
 There is a problem with api commit timezone, it might not work properly. 
-https://bitbucket.org/rest/api/1.0/projects/wl1390/repos/test/commits?until=master&limit=25
 
 ### bitbucket
 For the .properties set up, write `git.api=/2.0/repositories/` instead of the documentation. The url you put in the UI should be `https://api.bitbucket.org/{username}/{reponame}`
