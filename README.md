@@ -32,6 +32,19 @@ http://agilerule.blogspot.com/2016/06/how-to-install-maven-on-raspberry-pi.html
 
 When you turn the PI off, make sure to turn off the server by running `db.shutdownServer()` in the Mongo Shell. If it ever happens that the collector api is running but not showing up in UI, it means that the database is corrupt. One solution is to go to MongoDB's default location and delete everything. Start MongoDB setup all over again.
 
+For node, follow the following command to install the new version
+```
+pi@raspberrypi:~ $  sudo su -
+root@raspberrypi:~ # apt-get remove nodered -y
+root@raspberrypi:~ # apt-get remove nodejs nodejs-legacy -y
+root@raspberrypi:~ # apt-get remove npm  -y
+root@raspberrypi:~ # curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+root@raspberrypi:~ # apt-get install nodejs -y
+    
+```
+
+check the node and npm version by running `node -v` and `npm -v`
+After success, run `sudo npm install bower -g` and `sudo npm install gulp -g`
 
 ## Database - MongoDB
 Create /data/db directory in the root folder.
@@ -67,21 +80,7 @@ If it fails on a collector, go to pom.xml and skip that step, and run mvn again.
 
 When it fails on the UI step, go to /UI and delete /node and /node_modules
 
-Follow the following command to install new node
-```
-pi@raspberrypi:~ $  sudo su -
-root@raspberrypi:~ # apt-get remove nodered -y
-root@raspberrypi:~ # apt-get remove nodejs nodejs-legacy -y
-root@raspberrypi:~ # apt-get remove npm  -y
-root@raspberrypi:~ # curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
-root@raspberrypi:~ # apt-get install nodejs -y
-    
-```
-
-check the node and npm version by running `node -v` and `npm -v`
-
 run `npm install --ignore scripts`
-After success, run `sudo npm install bower -g` and `sudo npm install gulp -g`
 After success, run `bower install` and `gulp build`
 
 `gulp build` might show error, but as long as `gulp serve` brings the dashboard browser up we are fine. 
