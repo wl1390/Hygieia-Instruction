@@ -80,7 +80,7 @@ If it fails on a collector, go to pom.xml and skip that step, and run mvn again.
 
 When it fails on the UI step, go to /UI and delete /node and /node_modules
 
-run `npm install --ignore scripts`
+run `npm install` and `npm install --ignore scripts`
 After success, run `npm install bower` and `npm install gulp`
 After success, run `bower install` and `gulp build`
 
