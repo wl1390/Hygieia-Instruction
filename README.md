@@ -8,7 +8,7 @@
 
 * Connect API
 
-* Congifure Collectors
+* Configure Collectors
 
 ## Dependencies
 
